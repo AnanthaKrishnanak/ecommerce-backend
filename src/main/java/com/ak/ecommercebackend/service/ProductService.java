@@ -9,14 +9,14 @@ import java.util.List;
 
 @Service
 public class ProductService {
-  private ProductRepo productRepo;
+    private ProductRepo productRepo;
 
-  @Autowired
-  public void setProductRepo(ProductRepo productRepo) {
-    this.productRepo = productRepo;
-  }
+    @Autowired
+    public void setProductRepo(ProductRepo productRepo) {
+        this.productRepo = productRepo;
+    }
 
-  public List<Product> getAllProducts() {
-   return  productRepo.findAll();
-  }
+    public List<Product> getAllProducts() {
+        return productRepo.findAll();
+    }
 }
