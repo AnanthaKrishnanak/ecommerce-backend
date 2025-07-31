@@ -25,6 +25,12 @@ public class ProductController {
         return service.getAllProducts();
     }
 
+    @GetMapping("{id}/")
+    public  ResponseEntity<Product> getProductById(@PathVariable int id) {
+        Product product = service.getProductById(id);
+        return new ResponseEntity<>(product, HttpStatus.OK);
+    }
+
     @PostMapping
     public ResponseEntity<Product> createProduct(@RequestBody @Valid Product product) {
         return ResponseEntity.status(HttpStatus.CREATED).body(service.createProduct(product));
@@ -35,7 +41,7 @@ public class ProductController {
         return service.updateProduct(product);
     }
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("{id}/")
     public ResponseEntity<String> deleteProduct(@PathVariable int id) {
         service.deleteProduct(id);
         return ResponseEntity.ok().body("Product deleted");

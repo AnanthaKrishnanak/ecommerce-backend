@@ -19,6 +19,15 @@ public class ProductService {
         return productRepo.findAll();
     }
 
+    public  Product getProductById(int id) {
+        if(productRepo.findById(id).isPresent()) {
+            return productRepo.findById(id).get();
+        }
+
+        throw new EntityNotFoundException("Product not found");
+    }
+
+
     public Product createProduct(Product product) {
         return productRepo.save(product);
     }
