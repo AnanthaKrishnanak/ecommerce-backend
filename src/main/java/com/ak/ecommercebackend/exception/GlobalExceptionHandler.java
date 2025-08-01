@@ -14,4 +14,10 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
     }
 
+    @ExceptionHandler(ImageUploadException.class)
+    public ResponseEntity<String> handleImageUploadException(ImageUploadException ex) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                .body("Image upload failed: " + ex.getMessage());
+    }
+
 }

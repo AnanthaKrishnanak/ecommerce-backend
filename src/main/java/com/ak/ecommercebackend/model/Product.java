@@ -16,6 +16,7 @@ public class Product {
     @Id
     private int productId;
     private String productName;
+    private String productImageUrl;
     private double productPrice;
     private int productStock;
     private String productDescription;
@@ -25,5 +26,4 @@ public class Product {
     private String brand;
     private int rating;
     private int reviewCount;
-
 }
