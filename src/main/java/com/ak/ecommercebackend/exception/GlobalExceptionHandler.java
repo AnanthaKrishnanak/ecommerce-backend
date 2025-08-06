@@ -20,4 +20,5 @@ public class GlobalExceptionHandler {
                 .body("Image upload failed: " + ex.getMessage());
     }
 
+
 }

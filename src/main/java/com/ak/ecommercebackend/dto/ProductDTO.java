@@ -1,19 +1,15 @@
-package com.ak.ecommercebackend.model;
+package com.ak.ecommercebackend.dto;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
-@Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Product {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class ProductDTO {
     private int productId;
     private String productName;
     private String productImageUrl;
@@ -21,19 +17,9 @@ public class Product {
     private int productStock;
     private String productDescription;
     private Boolean inStock;
-    @Temporal(TemporalType.DATE)
     private Date createdAt;
     private String brand;
     private int rating;
     private int reviewCount;
-
-    @ManyToOne
-    @JoinColumn(name = "category_id", nullable = false)
-    private Category productCategory;
-
-    @PrePersist
-    protected void onCreate() {
-        this.createdAt = new Date();
-    }
-
+    private Long categoryId;
 }
